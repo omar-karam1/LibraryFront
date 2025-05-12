@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المكتبة - إدارة الكتب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/book.css">
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>إدارة المكتبة</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                    <li class="active"><a href="books.html"><i class="fas fa-book"></i> إدارة الكتب</a></li>
+                    <li><a href="categories.html"><i class="fas fa-tags"></i> التصنيفات</a></li>
+                    <li><a href="authors.html"><i class="fas fa-user-edit"></i> المؤلفون</a></li>
+                    <li><a href="book-authors.html"><i class="fas fa-link"></i> ربط كتب بمؤلفين</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- شريط العنوان -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="بحث...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="../images/omar.jpg" alt="صورة المدير">
+                    <span>مدير النظام</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </header>
+
+            <!-- إدارة الكتب -->
+            <section class="content-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-book"></i> إدارة الكتب</h2>
+                    <button class="btn btn-primary" id="add-book-btn"><i class="fas fa-plus"></i> إضافة كتاب</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="books-table">
+                        <thead>
+                            <tr>
+                                <th>الصورة</th>
+                                <th>العنوان</th>
+                                <th>التصنيف</th>
+                                <th>السعر</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- الكتب ستُعرض هنا بواسطة جافا سكربت -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+   
+
+    <!-- نافذة إضافة كتاب -->
+<div id="book-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>إضافة كتاب جديد</h3>
+            <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form onsubmit="saveBook(event)"> <!-- استدعاء الدالة عند الإرسال -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-title">عنوان الكتاب</label>
+                        <input type="text" id="book-title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-category">التصنيف</label>
+                        <select id="book-category" class="form-control" required>
+                            <!-- التصنيفات ستُضاف هنا بواسطة جافا سكربت -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-price">السعر</label>
+                        <input type="number" id="book-price" class="form-control" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="book-is-free">
+                            <label for="book-is-free"  class="checkbox-label">مجاني</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="book-description">وصف الكتاب</label>
+                    <textarea id="book-description" class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-image">صورة الغلاف</label>
+                        <input type="file" id="book-image" class="form-control" accept="image/*">
+                        <div class="image-preview" id="book-image-preview">
+                            <i class="fas fa-image" style="font-size: 24px; color: #ddd;"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-file">ملف الكتاب</label>
+                        <input type="file" id="book-file" class="form-control" accept=".pdf,.epub">
+                        <div class="file-info" id="book-file-info">لم يتم اختيار ملف</div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">حفظ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+  <script src="../js/books.js"></script>
+</body>
+</html>

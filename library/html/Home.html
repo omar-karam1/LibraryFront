@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مكتبة المعرفة | الصفحة الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #2c3e50; /* أزرق داكن بدلاً من الأحمر */
+      --secondary-color: #3498db; /* أزرق فاتح بدلاً من الذهبي */
+      --accent-color: #ecf0f1; /* رمادي فاتح */
+      --dark-color: #2c3e50;
+      --light-color: #f8f9fa;
+      --menu-color: #2980b9;
+      --text-color: #333;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+    }
+    
+    /* شريط التنقل */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--dark-color);
+      padding: 15px 0;
+      z-index: 1000;
+      transition: all 0.3s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      color: white;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 50px;
+      margin-left: 10px;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .logo-text span:first-child {
+      color: var(--secondary-color);
+      font-size: 1.2rem;
+    }
+    
+    .logo-text span:last-child {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-right: 25px;
+    }
+    
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+    
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      bottom: -5px;
+      right: 0;
+      transition: width 0.3s;
+    }
+    
+    .nav-links a:hover:after {
+      width: 100%;
+      right: auto;
+      left: 0;
+    }
+    
+    .nav-links a:hover {
+      color: var(--secondary-color);
+    }
+    
+    /* قسم الهيرو */
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      color: white;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+      color: var(--secondary-color);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+      border: 2px solid var(--primary-color);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: white;
+      border: 2px solid var(--secondary-color);
+    }
+    
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-primary:hover {
+      background-color: #1a252f;
+      border-color: #1a252f;
+    }
+    
+    .btn-outline:hover {
+      background-color: rgba(52, 152, 219, 0.2);
+    }
+    
+    /* قسم الكتب المميزة */
+    .featured-books {
+      padding: 100px 20px;
+      background-color: white;
+      text-align: center;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: -10px;
+      right: 25%;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-color);
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .book-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      border-bottom: 4px solid var(--secondary-color);
+      text-align: right;
+    }
+    
+    .book-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .book-cover {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .book-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: var(--dark-color);
+    }
+    
+    .book-author {
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+    
+    .book-price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+    
+    /* قسم التصنيفات */
+    .categories {
+      padding: 100px 20px;
+      background-color: var(--accent-color);
+      text-align: center;
+    }
+    
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .category-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .category-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+    
+    /* تذييل الصفحة */
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 50px 20px 30px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: right;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h3:after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 2px;
+      background: var(--secondary-color);
+      bottom: 0;
+      right: 0;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #ddd;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary-color);
+      padding-right: 5px;
+    }
+    
+    .social-icons {
+      margin: 20px 0;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1.2rem;
+      margin-left: 10px;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+    }
+    
+    /* تأثيرات الحركة */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* التكيف مع الأجهزة المختلفة */
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      
+      .hero p {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- شريط التنقل -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="library-logo.png" alt="شعار مكتبة المعرفة">
+        <div class="logo-text">
+          <span>مكتبة</span>
+          <span>المعرفة</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#books">الكتب</a></li>
+        <li><a href="#categories">التصنيفات</a></li>
+        <li><a href="#about">عن المكتبة</a></li>
+        <li><a href="#contact">اتصل بنا</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- قسم الهيرو -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>اكتشف عالمًا من المعرفة</h1>
+      <p>أكبر مجموعة من الكتب العربية والعالمية بين يديك</p>
+      <div class="btn-group">
+        <a href="#books" class="btn btn-primary">تصفح الكتب</a>
+        <a href="#membership" class="btn btn-outline">اشترك معنا</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- قسم الكتب المميزة -->
+  <section class="featured-books" id="books">
+    <h2 class="section-title">كتب مميزة</h2>
+    <p class="section-subtitle">استمتع بأفضل العناوين المختارة بعناية لك</p>
+    <div class="books-grid">
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="كتاب" class="book-cover">
+        <h3>فن اللامبالاة</h3>
+        <p class="book-author">مارك مانسون</p>
+        <p class="book-price">75 ر.س</p>
+        <button class="btn btn-primary" style="width: 100%;">إضافة إلى السلة</button>
+      </div>
+      
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="كتاب" class="book-cover">
+        <h3>العادات الذرية</h3>
+        <p class="book-author">جيمس كلير</p>
+        <p class="book-price">85 ر.س</p>
+        <button class="btn btn-primary" style="width: 100%;">إضافة إلى السلة</button>
+      </div>
+      
+      <div class="book-card">
+        <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="كتاب" class="book-cover">
+        <h3>الأب الغني والأب الفقير</h3>
+        <p class="book-author">روبرت كيوساكي</p>
+        <p class="book-price">65 ر.س</p>
+        <button class="btn btn-primary" style="width: 100%;">إضافة إلى السلة</button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- قسم التصنيفات -->
+  <section class="categories" id="categories">
+    <h2 class="section-title">تصنيفات الكتب</h2>
+    <p class="section-subtitle">اختر من بين مجموعة واسعة من التصنيفات</p>
+    <div class="categories-grid">
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3>تطوير الذات</h3>
+        <p>كتب لتحسين مهاراتك الشخصية والمهنية</p>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>إدارة الأعمال</h3>
+        <p>كتب في الإدارة والقيادة والتمويل</p>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>البرمجة</h3>
+        <p>كتب في لغات البرمجة وتطوير البرمجيات</p>
+      </div>
+      
+      <div class="category-card">
+        <div class="category-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h3>الروايات</h3>
+        <p>أفضل الأعمال الروائية العربية والعالمية</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- تذييل الصفحة -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>عن المكتبة</h3>
+        <p>مكتبة المعرفة تقدم لك أفضل الكتب العربية والعالمية في مختلف المجالات منذ عام 2010.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>روابط سريعة</h3>
+        <ul class="footer-links">
+          <li><a href="#">الرئيسية</a></li>
+          <li><a href="#books">الكتب</a></li>
+          <li><a href="#categories">التصنيفات</a></li>
+          <li><a href="#about">عن المكتبة</a></li>
+          <li><a href="#contact">اتصل بنا</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h3>معلومات الاتصال</h3>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt"></i> الرياض، المملكة العربية السعودية</li>
+          <li><i class="fas fa-phone"></i> +966 11 123 4567</li>
+          <li><i class="fas fa-envelope"></i> info@almaarifa.com</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>جميع الحقوق محفوظة &copy; 2023 مكتبة المعرفة</p>
+    </div>
+  </footer>
+
+  <script>
+    // جعل شريط التنقل يتغير عند التمرير
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // تأثيرات التمرير السلس للروابط
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

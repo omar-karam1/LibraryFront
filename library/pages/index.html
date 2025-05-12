@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مكتبة المعرفة | الصفحة الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link rel="stylesheet" href="../assets/css/main.css">
+   <style>
+    .book-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  padding: 15px;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.book-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.book-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.book-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.book-info .book-rating {
+  font-size: 0.9rem;
+  color: #ffa500;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-info .book-rating .stars {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.book-info .book-rating .rating-number {
+  color: #555;
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+   </style>
+</head>
+<body>
+  <!-- شريط التنقل -->
+  <nav class="navbar">
+    <div class="nav-container container">
+      <a href="index.html" class="logo">
+        <img src="../assets/images/l.png" alt="شعار مكتبة المعرفة">
+        <div class="logo-text">
+          <span>مكتبة</span>
+          <span>المعرفة</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">الرئيسية</a></li>
+        <li><a href="books.html">الكتب</a></li>
+        <li><a href="authors.html">المؤلفون</a></li>
+        <li><a href="login.html">تسجيل الدخول</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- قسم الهيرو -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>اكتشف عالمًا من المعرفة</h1>
+      <p>أكبر مجموعة من الكتب العربية والعالمية بين يديك</p>
+    </div>
+  </section>
+
+  <!-- قسم الكتب المميزة -->
+  <section class="featured-books">
+    <div class="container">
+      <h2 class="section-title">كتب مميزة</h2>
+      <p class="section-subtitle">استكشف مجموعة مختارة من أفضل الكتب</p>
+      <div class="books-grid" id="featured-books-grid">
+        <!-- سيتم تحميل الكتب عشوائياً هنا -->
+      </div>
+    </div>
+  </section>
+
+  <!-- تذييل الصفحة -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>عن المكتبة</h3>
+          <p>مكتبة المعرفة تقدم لك أفضل الكتب العربية والعالمية في مختلف المجالات منذ عام 2010.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>روابط سريعة</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="books.html">الكتب</a></li>
+            <li><a href="authors.html">المؤلفون</a></li>
+            <li><a href="login.html">تسجيل الدخول</a></li>
+            <li><a href="register.html">إنشاء حساب</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>خدمة العملاء</h3>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+            <li><a href="#"><i class="fas fa-exchange-alt"></i> سياسة الإرجاع</a></li>
+            <li><a href="#"><i class="fas fa-credit-card"></i> طرق الدفع</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> الشروط والأحكام</a></li>
+            <li><a href="#"><i class="fas fa-lock"></i> سياسة الخصوصية</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>معلومات الاتصال</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-map-marker-alt"></i> اسيوط, شارع الجمهورية</li>
+            <li><i class="fas fa-phone"></i> +20 11 123 4567</li>
+            <li><i class="fas fa-envelope"></i> info@almaarifa.com</li>
+            <li><i class="fas fa-clock"></i> من الأحد إلى الخميس: 8 صباحًا - 10 مساءً</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>جميع الحقوق محفوظة &copy; 2023 مكتبة المعرفة</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fab fa-cc-apple-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- زر الانتقال لأعلى الصفحة -->
+  <div class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

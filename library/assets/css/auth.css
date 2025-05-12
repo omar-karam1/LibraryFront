@@ -1,0 +1,151 @@
+/* صفحتي الدخول والتسجيل */
+.auth-section {
+    padding: 100px 0;
+    background-color: var(--accent-color);
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+  }
+  
+  .auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .auth-header h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .auth-header p {
+    color: var(--text-color);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--dark-color);
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+  }
+  
+  .forgot-password {
+    display: block;
+    text-align: left;
+    margin-top: 5px;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+  }
+  
+  .btn-block {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--text-color);
+  }
+  
+  .auth-footer a {
+    color: var(--secondary-color);
+    font-weight: 500;
+  }
+  
+  .social-login {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .social-login p {
+    position: relative;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+  
+  .social-login p::before,
+  .social-login p::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 30%;
+    background: #ddd;
+    top: 50%;
+  }
+  
+  .social-login p::before {
+    right: 0;
+  }
+  
+  .social-login p::after {
+    left: 0;
+  }
+  
+  .btn-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+  
+  .btn-social i {
+    margin-left: 8px;
+  }
+  
+  .btn-social.facebook {
+    background-color: #3b5998;
+    color: white;
+  }
+  
+  .btn-social.google {
+    background-color: #db4437;
+    color: white;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-group input {
+    width: auto;
+    margin-left: 10px;
+  }
+  
+  .checkbox-group label {
+    margin-bottom: 0;
+  }

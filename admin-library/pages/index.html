@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المكتبة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>إدارة المكتبة</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active" data-section="dashboard"><a href="#"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                    <li data-section="books"><a href="../pages/books.html"><i class="fas fa-book"></i> إدارة الكتب</a></li>
+                    <li data-section="categories"><a href="../pages/categories.html"><i class="fas fa-tags"></i> التصنيفات</a></li>
+                    <li data-section="authors"><a href="../pages/authors.html"><i class="fas fa-user-edit"></i> المؤلفون</a></li>
+                    <li data-section="book-authors"><a href="../pages/book-authors.html"><i class="fas fa-link"></i> ربط كتب بمؤلفين</a></li>
+                </ul>
+            </nav>
+            
+            <div class="quick-actions">
+                <h4>إجراءات سريعة</h4>
+                <ul>
+                    <li><a href="../pages/books.html" id="quick-add-book"><i class="fas fa-plus-circle"></i> إضافة كتاب</a></li>
+                    <li><a href="../pages/authors.html" id="quick-add-author"><i class="fas fa-user-plus"></i> إضافة مؤلف</a></li>
+                    <li><a href="#" id="quick-generate-report"><i class="fas fa-file-alt"></i> إنشاء تقرير</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- شريط العنوان -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="بحث...">
+                    <button><i class="fas fa-search"></i></button>
+                    <div class="advanced-search-toggle">
+                        <i class="fas fa-sliders-h"></i>
+                        <span>بحث متقدم</span>
+                    </div>
+                </div>
+                
+                <div class="user-actions">
+                    <div class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                        <label class="switch">
+                            <input type="checkbox" id="dark-mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                        <div class="notifications-dropdown">
+                            <div class="notification-header">
+                                <h4>الإشعارات</h4>
+                                <span class="mark-all-read">تعيين الكل كمقروء</span>
+                            </div>
+                            <div class="notification-list">
+                                <!-- إشعارات -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <img src="../images/omar.jpg" alt="صورة المدير">
+                        <span>مدير النظام</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- أقسام المحتوى -->
+            <section id="dashboard-section" class="content-section active">
+                <h2><i class="fas fa-tachometer-alt"></i> لوحة التحكم</h2>
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>إجمالي الكتب</h3>
+                            <p id="total-books">40</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-green">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>التصنيفات</h3>
+                            <p id="total-categories">10</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-orange">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>المؤلفون</h3>
+                            <p id="total-authors">20</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-charts">
+                    <div class="chart-card">
+                        <h3>توزيع الكتب حسب التصنيفات</h3>
+                        <canvas id="books-by-category-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>الكتب المضافة خلال الشهر</h3>
+                        <canvas id="books-added-monthly-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="popular-books">
+                    <h3><i class="fas fa-star"></i> الكتب الأكثر شعبية</h3>
+                    <div class="books-grid">
+                        <!-- سيتم ملؤها بالبيانات -->
+                    </div>
+                </div>
+                
+                <div class="recent-activities">
+                    <h3><i class="fas fa-history"></i> الأنشطة الحديثة</h3>
+                    <ul class="activities-list">
+                        <li>
+                            <i class="fas fa-book activity-icon"></i>
+                            <div class="activity-info">
+                                <p>تمت إضافة كتاب "تعلم البرمجة بلغة جافا"</p>
+                                <span class="activity-time">منذ 5 دقائق</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-edit activity-icon"></i>
+                            <div class="activity-info">
+                                <p>تم تحديث معلومات المؤلف "أحمد محمد"</p>
+                                <span class="activity-time">منذ ساعة</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-tags activity-icon"></i>
+                            <div class="activity-info">
+                                <p>تمت إضافة تصنيف جديد "الذكاء الاصطناعي"</p>
+                                <span class="activity-time">منذ 3 ساعات</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+
+                
+                <div class="table-container">
+                    <table id="categories-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>اسم التصنيف</th>
+                                <th>عدد الكتب</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- سيتم ملؤها بالبيانات -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+
+    <!-- نافذة البحث المتقدم -->
+    <div class="advanced-search-modal">
+        <div class="advanced-search-content">
+            <h3>البحث المتقدم</h3>
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>التصنيف</label>
+                        <select class="form-control">
+                            <option value="">جميع التصنيفات</option>
+                            <!-- تصنيفات -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>المؤلف</label>
+                        <select class="form-control">
+                            <option value="">جميع المؤلفين</option>
+                            <!-- مؤلفين -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>نطاق السعر</label>
+                        <div class="price-range">
+                            <input type="number" placeholder="من" min="0">
+                            <input type="number" placeholder="إلى" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ترتيب حسب</label>
+                        <select class="form-control">
+                            <option value="newest">الأحدث</option>
+                            <option value="oldest">الأقدم</option>
+                            <option value="price-high">السعر (من الأعلى)</option>
+                            <option value="price-low">السعر (من الأقل)</option>
+                            <option value="popular">الأكثر شعبية</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary close-advanced-search">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">بحث</button>
+                </div>
+            </form>
+        </div>
+    </div>
+       <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("dark-mode-toggle");
+    const isDark = localStorage.getItem("dark-mode") === "true";
+
+    if (isDark) document.body.classList.add("dark-mode");
+    toggle.checked = isDark;
+
+    toggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("dark-mode", document.body.classList.contains("dark-mode"));
+    });
+});
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/books.js"></script>
+    <script src="js/categories.js"></script>
+    <script src="js/authors.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

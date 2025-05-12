@@ -1,0 +1,359 @@
+ /* أنماط عامة */
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* شريط التنقل */
+    .navbar {
+      background: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .logo img {
+      height: 40px;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    
+    .logo-text span:first-child {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .logo-text span:last-child {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ecf0f1;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-links li {
+      margin-right: 20px;
+    }
+    
+    .nav-links a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 10px 15px;
+      position: relative;
+      transition: all 0.3s;
+    }
+    
+    .nav-links a.active {
+      color: #e74c3c;
+      font-weight: 500;
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 3px;
+      background-color: #e74c3c;
+      transition: width 0.3s;
+    }
+    
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+    
+    /* شريط التصنيفات */
+    .categories-bar {
+      background: linear-gradient(to right, #e74c3c, #3498db);
+      color: white;
+      padding: 15px 0;
+      position: sticky;
+      top: 70px;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .categories-bar h3 {
+      margin: 0 20px 10px 0;
+      display: inline-block;
+      font-size: 1.1rem;
+    }
+    
+    .categories-list {
+      display: inline-flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    
+    .categories-list::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .categories-list li {
+      margin-left: 15px;
+    }
+    
+    .categories-list a {
+      color: white;
+      text-decoration: none;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background-color: rgba(255,255,255,0.2);
+      transition: all 0.3s;
+      font-size: 0.9rem;
+    }
+    
+    .categories-list a:hover,
+    .categories-list a.active {
+      background-color: rgba(255,255,255,0.3);
+    }
+    
+    /* قسم الكتب */
+    .books-page {
+      padding: 40px 0;
+    }
+    
+    .page-header {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin: 0;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      width: 70%;
+      height: 4px;
+      background: linear-gradient(to right, #e74c3c, #3498db);
+      border-radius: 2px;
+    }
+    
+    /* مؤشر التحميل */
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 0;
+    }
+    
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #e74c3c;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    
+    .loading-text {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* شبكة الكتب */
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .book-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: #333;
+    }
+    
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    
+    .book-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .book-info {
+      padding: 15px;
+    }
+    
+    .book-info h3 {
+      margin: 0 0 5px 0;
+      font-size: 1rem;
+      color: #2c3e50;
+    }
+    
+    .book-info .author {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    
+    .book-info .price {
+      color: #e74c3c;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    /* الترقيم */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 40px;
+    }
+    
+    .btn {
+      padding: 8px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      border: none;
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #3498db;
+      color: #3498db;
+    }
+    
+    .btn-outline:hover {
+      background: #3498db;
+      color: white;
+    }
+    
+    .btn-primary {
+      background: #3498db;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #2980b9;
+    }
+    
+    .pagination span {
+      color: #7f8c8d;
+    }
+    
+    /* تذييل الصفحة */
+    .footer {
+      background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+      color: #ecf0f1;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 50px;
+    }
+    
+    .footer p {
+      margin: 0;
+    }
+    
+    /* التكيف مع الأجهزة الصغيرة */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+      }
+      
+      .book-card img {
+        height: 200px;
+      }
+    }
+
+    .book-rating {
+  font-size: 0.9rem;
+  color: #ffa500;
+  margin-top: 4px;
+}
+
+.book-rating .stars {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.book-rating .rating-number {
+  color: #555;
+  margin-right: 5px;
+  font-weight: bold;
+}

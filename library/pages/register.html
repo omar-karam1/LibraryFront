@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مكتبة المعرفة | إنشاء حساب</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="../assets/css/register.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    
+
+#passwordError, #confirmPasswordError {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none; 
+}
+
+  </style>
+</head>
+<body>
+  <!-- الجزء العلوي (نفسه بدون تغيير) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+       <img src="../assets/images/l.png" alt="شعار مكتبة المعرفة">
+        <div class="logo-text">
+          <span>مكتبة</span>
+          <span>المعرفة</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">الرئيسية</a></li>
+        <li><a href="../pages/books.html">الكتب</a></li>
+        <li><a href="../pages/authors.html">المؤلفون</a></li>
+        <li><a href="../pages/login.html">تسجيل الدخول</a></li>
+        <li><a href="../pages/register.html" class="active">إنشاء حساب</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <section class="auth-section">
+    <div class="auth-container">
+      <div class="auth-header">
+        <h2>إنشاء حساب جديد</h2>
+        <p>انضم إلى مجتمع مكتبة المعرفة اليوم</p>
+      </div>
+      
+      <form id="registerForm" class="auth-form">
+        <div class="form-group">
+          <label for="name">الاسم الكامل</label>
+          <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required>
+          <div class="error-message" id="nameError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="userName">اسم المستخدم</label>
+          <input type="text" id="userName" name="userName" placeholder="أدخل اسم المستخدم" required>
+          <div class="error-message" id="userNameError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+          <div class="error-message" id="emailError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="password">كلمة المرور</label>
+          <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required minlength="6">
+          <div class="error-message" id="passwordError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="confirmPassword">تأكيد كلمة المرور</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="أعد إدخال كلمة المرور" required>
+          <div class="error-message" id="confirmPasswordError"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="birthDate">تاريخ الميلاد</label>
+          <input type="date" id="birthDate" name="birthDate" required>
+          <div class="error-message" id="birthDateError"></div>
+        </div>
+        
+        <div class="form-group checkbox-group">
+          <input type="checkbox" id="agreeTerms" required>
+          <label for="agreeTerms">أوافق على <a href="#">الشروط والأحكام</a> و<a href="#">سياسة الخصوصية</a></label>
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block" id="registerBtn">
+          <span id="registerText">إنشاء حساب</span>
+          <div id="registerSpinner" class="spinner d-none"></div>
+        </button>
+        
+        <div class="auth-footer">
+          <p>لديك حساب بالفعل؟ <a href="login.html">سجل الدخول الآن</a></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 مكتبة المعرفة. جميع الحقوق محفوظة.</p>
+  </footer>
+
+ 
+  <script src="../assets/js/register.js"></script>
+</body>
+</html>
