@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تفاصيل الكتاب</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="../assets/css/book-details.css"/>
+ <style>
+  #booksContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.book-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  text-decoration: none;
+  color: #333;
+  overflow: hidden;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.book-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.book-title {
+  font-size: 1rem;
+  margin: 10px 0 5px 0;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.book-stats {
+  font-size: 0.9rem;
+  color: #ffa500;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+ </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="../assets/images/l.png" alt="شعار مكتبة المعرفة"/>
+        <div class="logo-text">
+          <span>مكتبة</span>
+          <span>المعرفة</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="books.html">الكتب</a></li>
+        <li><a href="authors.html">المؤلفون</a></li>
+        <li><a href="login.html" class="active">تسجيل الدخول</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="book-container">
+    <div id="book-details" class="book-details"></div>
+    <div class="book-actions" id="book-actions"></div>
+    <div class="reviews">
+      <h3>المراجعات</h3>
+      <div id="reviews-list"></div>
+    </div>
+
+    <!-- قسم الكتب المشابهة -->
+    <div class="similar-books">
+      <h3>كتب مشابهة</h3>
+      <div id="similar-books-grid" class="similar-books-grid"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 مكتبة المعرفة. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <script src="../assets/js/book-details.js">
+   
+  </script>
+</body>
+</html>

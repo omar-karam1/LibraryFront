@@ -1,0 +1,58 @@
+ document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('authorsContainer');
+      
+      try {
+        const response = await fetch('https://projectlibraryapi.runasp.net/api/Book/GetAllAuthors');
+        
+        if (!response.ok) {
+          throw new Error('فشل في جلب البيانات: ' + response.status);
+        }
+        
+        const data = await response.json();
+
+        // التأكد من وجود بيانات المؤلفين
+        if (data && data.$values && data.$values.length > 0) {
+          container.innerHTML = ''; // مسح رسالة التحميل
+          
+          data.$values.forEach(author => {
+            const card = document.createElement('div');
+            card.className = 'author-card';
+
+            // معالجة صورة المؤلف
+            let authorImageUrl;
+            if (!author.authorImage) {
+              authorImageUrl = 'https://via.placeholder.com/300x300?text=صورة+المؤلف';
+            } else {
+              authorImageUrl = author.authorImage.startsWith('/') 
+                ? 'https://projectlibraryapi.runasp.net' + author.authorImage 
+                : author.authorImage;
+            }
+            
+            // معالجة اسم المؤلف
+            const authorName = author.name || 'مؤلف غير معروف';
+            
+            // إعداد المحتوى داخل البطاقة
+            card.innerHTML = `
+              <img src="${authorImageUrl}" alt="${authorName}" class="author-img">
+              <h3>${authorName}</h3>
+              <a href="author-books.html?authorId=${author.authorId}" class="btn btn-outline">عرض الكتب</a>
+            `;
+            
+            document.querySelector('.loading-container').style.display = 'none';
+            // إضافة البطاقة إلى الحاوية
+            container.appendChild(card);
+          });
+        } else {
+          container.innerHTML = '<p class="empty-message">لا توجد مؤلفين متاحين حاليًا.</p>';
+        }
+      } catch (error) {
+        console.error('حدث خطأ:', error);
+        container.innerHTML = `
+          <p class="error-message">
+            حدث خطأ أثناء تحميل المؤلفين. الرجاء المحاولة لاحقًا.
+            <br>
+            <small>${error.message}</small>
+          </p>
+        `;
+      }
+    });

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المكتبة - ربط كتب بمؤلفين</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/book-authors.css">
+    <style>
+        select, option {
+        color: black !important;
+        background-color: white !important;
+}
+
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>إدارة المكتبة</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                    <li><a href="books.html"><i class="fas fa-book"></i> إدارة الكتب</a></li>
+                    <li><a href="categories.html"><i class="fas fa-tags"></i> التصنيفات</a></li>
+                    <li><a href="authors.html"><i class="fas fa-user-edit"></i> المؤلفون</a></li>
+                    <li class="active"><a href="book-authors.html"><i class="fas fa-link"></i> ربط كتب بمؤلفين</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- شريط العنوان -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="بحث...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                  <img src="../images/omar.jpg" alt="صورة المدير">
+                    <span>مدير النظام</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </header>
+
+            <!-- ربط كتب بمؤلفين -->
+            <section class="content-section active">
+                <h2><i class="fas fa-link"></i> ربط كتب بمؤلفين</h2>
+                
+                <div class="book-author-form" style="background: white; padding: 20px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); margin-bottom: 20px;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="book-select">اختر كتاب:</label>
+                            <select id="book-select" class="form-control">
+                                <option value="">-- اختر كتاب --</option>
+                              
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="author-select">اختر مؤلف:</label>
+                            <select id="author-select" class="form-control">
+                                <option value="">-- اختر مؤلف --</option>
+                               
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary">ربط</button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>اسم الكتاب</th>
+                                <th>اسم المؤلف</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <td>
+                                    <button class="btn btn-sm btn-danger"><i class="fas fa-unlink"></i> إلغاء الربط</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/book-authors.js"></script>
+</body>
+</html>

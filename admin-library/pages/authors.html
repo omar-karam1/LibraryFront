@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة المكتبة - المؤلفون</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/authors.css">
+
+
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>إدارة المكتبة</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                    <li><a href="books.html"><i class="fas fa-book"></i> إدارة الكتب</a></li>
+                    <li><a href="categories.html"><i class="fas fa-tags"></i> التصنيفات</a></li>
+                    <li class="active"><a href="authors.html"><i class="fas fa-user-edit"></i> المؤلفون</a></li>
+                    <li><a href="book-authors.html"><i class="fas fa-link"></i> ربط كتب بمؤلفين</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- شريط العنوان -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" placeholder="بحث...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-profile">
+                    <img src="../images/omar.jpg" alt="صورة المدير">
+                    <span>مدير النظام</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </header>
+
+            <!-- إدارة المؤلفون -->
+            <section class="content-section active">
+                <div class="section-header">
+                    <h2><i class="fas fa-user-edit"></i> إدارة المؤلفون</h2>
+                    <button class="btn btn-primary" id="add-author-btn"><i class="fas fa-plus"></i> إضافة مؤلف</button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="Author-table">
+                        <thead>
+                            <tr>
+                                <th>الصورة</th>
+                                <th>اسم المؤلف</th>
+                                <th>عدد الكتب</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- نافذة إضافة مؤلف -->
+    <div id="author-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إضافة مؤلف جديد</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form>
+                     
+                    <input type="hidden" id="author-id">
+
+
+                    <div class="form-group">
+                        <label for="author-name">اسم المؤلف</label>
+                        <input type="text" id="author-name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="author-about">معلومات عن المؤلف</label>
+                        <textarea id="author-about" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="author-image">صورة المؤلف</label>
+                        <input type="file" id="author-image" class="form-control" accept="image/*">
+                        <div class="image-preview" id="author-image-preview">
+                            <i class="fas fa-user" style="font-size: 24px; color: #ddd;"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary close-modal">إلغاء</button>
+                        <button type="submit" class="btn btn-primary">حفظ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/authors.js"></script>
+</body>
+</html>
